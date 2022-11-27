@@ -48,6 +48,7 @@
             android:textColor="#727FA3"/>
 
         <EditText
+            android:id="@+id/edtPassword"
             android:layout_width="305dp"
             android:layout_height="48dp"
             android:layout_marginLeft="15dp"
@@ -56,9 +57,21 @@
             android:background="@drawable/bg_kotak_login"
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/password"
+            android:inputType="textPassword"
             android:textColor="#727FA3"/>
 
+        <TextView
+            android:id="@+id/txtNotesPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="140dp"
+            android:text="Password tidak sesuai"
+            android:textColor="@color/red"
+            android:visibility="invisible"/>
+
         <Button
+            android:id="@+id/btnMasuk"
             android:layout_width="305dp"
             android:layout_height="40dp"
             android:layout_marginLeft="15dp"
@@ -66,7 +79,8 @@
             android:layout_marginRight="15dp"
             android:background="@drawable/bg_button_masuk"
             android:fontFamily="@font/roboto_medium"
-            android:text="Masuk" />
+            android:text="@string/masuk"
+            android:enabled="false"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -122,6 +136,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLupaPass"
         app:layout_constraintVertical_bias="0.65999997" />
+
+    <RelativeLayout
+        android:id="@+id/kotakInfoAkun"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:background="@drawable/bg_kotak_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible">
+
+        <FrameLayout
+            android:id="@+id/frameProfil"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:src="@drawable/profil" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/idUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/frameProfil"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/rekeningUser"
+            android:paddingTop="10dp"
+            android:text="@string/IDpengguna" />
+
+        <TextView
+            android:id="@+id/rekeningUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/frameProfil"
+            android:paddingLeft="10dp"
+            android:text="@string/rekening" />
+    </RelativeLayout>
 
     <ImageView
         android:layout_width="wrap_content"
