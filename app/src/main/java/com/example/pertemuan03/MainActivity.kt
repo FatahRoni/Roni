@@ -1,9 +1,11 @@
 package com.example.pertemuan03
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -41,10 +43,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.txtLupaPass.setOnClickListener {
             // cara pertama intent untuk menyambungkan antar activity (layout)
-            startActivity(Intent (this@MainActivity,AktivasiAkun::class.java) )
+//            startActivity(Intent (this@MainActivity,AktivasiAkun::class.java) )
             // cara kedua
 //            val intent = Intent(this,AktivasiAkun::class.java)
 //            startActivity(intent)
+            // tugas ambil data
+            aktivasiAkun.launch(AktivasiAkun.getIntent(this))
         }
 
         if (intent.getStringExtra("IdUser")?.isNotBlank() == true) {
@@ -68,6 +72,16 @@ class MainActivity : AppCompatActivity() {
         binding.txtNotesPassword.isInvisible = PasswordBenar
 
         return PasswordBenar
+    }
+
+    private val aktivasiAkun = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            val intent = it.data ?: return@registerForActivityResult
+            val username = intent.getStringExtra("user_data")
+//            val accountNumber = intent.getStringExtra("account_number")
+
+            binding.edtLogin.setText(username)
+        }
     }
 
 }

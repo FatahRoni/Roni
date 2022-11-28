@@ -142,9 +142,9 @@
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:background="@drawable/bg_kotak_user"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible">
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:id="@+id/frameProfil"
@@ -166,7 +166,6 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/frameProfil"
             android:paddingLeft="10dp"
-            android:layout_below="@+id/rekeningUser"
             android:paddingTop="10dp"
             android:text="@string/IDpengguna" />
 
@@ -174,6 +173,7 @@
             android:id="@+id/rekeningUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/idUser"
             android:layout_toRightOf="@+id/frameProfil"
             android:paddingLeft="10dp"
             android:text="@string/rekening" />
